@@ -29,7 +29,7 @@ export const mockProducts: Product[] = [
     id: '1',
     name: 'Traditional Zulu Basket - Green Pattern',
     price: 250,
-    image: '/api/placeholder/300/300',
+  image: '/product-images/zulu-basket-green.jpg',
     description: 'Handwoven traditional Zulu basket with intricate green and black patterns. Made from sustainable materials by skilled artisans.',
     category: 'Baskets',
     vendor: {
@@ -62,7 +62,7 @@ export const mockProducts: Product[] = [
     id: '2',
     name: 'Beaded Ndebele Jewelry Set',
     price: 150,
-    image: '/api/placeholder/300/300',
+  image: '/product-images/ndebele-jewelry-set.jpg',
     description: 'Colorful traditional Ndebele beaded jewelry featuring geometric patterns in bright colors.',
     category: 'Jewelry',
     vendor: {
@@ -87,7 +87,7 @@ export const mockProducts: Product[] = [
     id: '3',
     name: 'Carved Wooden Bowl - Geometric Design',
     price: 350,
-    image: '/api/placeholder/300/300',
+  image: '/product-images/wooden-bowl-geometric.jpg',
     description: 'Hand-carved wooden bowl with traditional geometric patterns. Perfect for serving or display.',
     category: 'Woodwork',
     vendor: {
@@ -103,7 +103,7 @@ export const mockProducts: Product[] = [
     id: '4',
     name: 'Ceramic Pot with Earth Tones',
     price: 180,
-    image: '/api/placeholder/300/300',
+  image: '/product-images/ceramic-pot-earth.jpg',
     description: 'Handmade ceramic pot with beautiful earth-tone glazes. Functional and decorative.',
     category: 'Pottery',
     vendor: {
@@ -119,7 +119,7 @@ export const mockProducts: Product[] = [
     id: '5',
     name: 'Woven Grass Mat - Natural Fiber',
     price: 120,
-    image: '/api/placeholder/300/300',
+  image: '/product-images/woven-grass-mat.jpg',
     description: 'Eco-friendly woven grass mat made from locally sourced natural fibers.',
     category: 'Textiles',
     vendor: {
@@ -135,7 +135,7 @@ export const mockProducts: Product[] = [
     id: '6',
     name: 'Copper Wire Art Sculpture',
     price: 280,
-    image: '/api/placeholder/300/300',
+  image: '/product-images/copper-wire-art.jpg',
     description: 'Contemporary copper wire sculpture inspired by traditional African art forms.',
     category: 'Art',
     vendor: {

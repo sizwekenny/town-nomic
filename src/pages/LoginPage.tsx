@@ -11,8 +11,8 @@ import { useToast } from '@/hooks/use-toast';
 export const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [otpSent, setOtpSent] = useState(false);
-  const [otp, setOtp] = useState('');
+  // const [otpSent, setOtpSent] = useState(false);
+  // const [otp, setOtp] = useState('');
   const { toast } = useToast();
 
   const [loginData, setLoginData] = useState({
@@ -21,26 +21,25 @@ export const LoginPage: React.FC = () => {
   });
 
   const [signupData, setSignupData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    phone: '',
-    role: ''
+    name: 'kenny',
+    email: 'sizwekenny36@gmail.com',
+    password: '1234',
+    confirmPassword: '1234',
+    phone: '0211456636',
+    role: 'Poduct owner/Vendor'
   });
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Mock login process
+    // Mock login process (no OTP)
     setTimeout(() => {
-      setOtpSent(true);
       setIsLoading(false);
       toast({
-        title: "OTP Sent",
-        description: "Check your email for the verification code.",
+        title: "Login Successful",
+        description: "Welcome back!",
       });
+      // In a real app, redirect to dashboard here
     }, 1000);
   };
 
@@ -58,83 +57,22 @@ export const LoginPage: React.FC = () => {
       return;
     }
 
-    // Mock signup process
+    // Mock signup process (no OTP)
     setTimeout(() => {
-      setOtpSent(true);
       setIsLoading(false);
       toast({
         title: "Account Created",
-        description: "Please verify your email with the OTP sent to you.",
+        description: "You can now log in with your credentials.",
       });
+      // In a real app, redirect to login or dashboard here
     }, 1000);
   };
 
-  const handleOtpVerification = () => {
-    setIsLoading(true);
-    
-    // Mock OTP verification
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Success!",
-        description: "Your account has been verified. Welcome to Town-Nomic!",
-      });
-      // In real app, would redirect to dashboard
-    }, 1000);
-  };
 
-  if (otpSent) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
-        <div className="w-full max-w-md">
-          <div className="bg-card p-8 rounded-xl shadow-lg animate-scale-in">
-            <div className="text-center mb-6">
-              <h1 className="text-2xl font-bold text-foreground">Verify Your Email</h1>
-              <p className="text-muted-foreground mt-2">
-                Enter the 6-digit code sent to your email
-              </p>
-            </div>
+  // OTP flow removed
 
-            <div className="space-y-4">
-              <div className="flex justify-center space-x-2">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <Input
-                    key={i}
-                    type="text"
-                    maxLength={1}
-                    className="w-12 h-12 text-center text-lg font-semibold"
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      if (value && i < 6) {
-                        const nextInput = e.target.parentElement?.children[i] as HTMLInputElement;
-                        nextInput?.focus();
-                      }
-                    }}
-                  />
-                ))}
-              </div>
 
-              <Button 
-                onClick={handleOtpVerification}
-                disabled={isLoading}
-                className="w-full btn-primary"
-              >
-                {isLoading ? 'Verifying...' : 'Verify OTP'}
-              </Button>
-
-              <Button 
-                variant="ghost" 
-                className="w-full"
-                onClick={() => setOtpSent(false)}
-              >
-                Back to Login
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // OTP UI removed
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
@@ -155,11 +93,9 @@ export const LoginPage: React.FC = () => {
               <TabsTrigger value="login">Login</TabsTrigger>
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
             </TabsList>
-            
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="space-y-4">
                 <h2 className="text-xl font-semibold text-center mb-4">Welcome Back</h2>
-                
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <div className="relative">
@@ -175,7 +111,6 @@ export const LoginPage: React.FC = () => {
                     />
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="password">Password</Label>
                   <div className="relative">
@@ -200,7 +135,6 @@ export const LoginPage: React.FC = () => {
                     </Button>
                   </div>
                 </div>
-
                 <Button 
                   type="submit" 
                   disabled={isLoading}
@@ -208,7 +142,6 @@ export const LoginPage: React.FC = () => {
                 >
                   {isLoading ? 'Signing In...' : 'Sign In'}
                 </Button>
-
                 <div className="text-center">
                   <Button variant="link" className="text-primary">
                     Forgot your password?
@@ -216,11 +149,9 @@ export const LoginPage: React.FC = () => {
                 </div>
               </form>
             </TabsContent>
-            
             <TabsContent value="signup">
               <form onSubmit={handleSignup} className="space-y-4">
                 <h2 className="text-xl font-semibold text-center mb-4">Create Account</h2>
-                
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
                   <div className="relative">
@@ -236,7 +167,6 @@ export const LoginPage: React.FC = () => {
                     />
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
                   <div className="relative">
@@ -252,7 +182,6 @@ export const LoginPage: React.FC = () => {
                     />
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
                   <div className="relative">
@@ -268,7 +197,6 @@ export const LoginPage: React.FC = () => {
                     />
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="role">I want to join as</Label>
                   <Select onValueChange={(value) => setSignupData({...signupData, role: value})}>
@@ -281,7 +209,6 @@ export const LoginPage: React.FC = () => {
                     </SelectContent>
                   </Select>
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="signup-password">Password</Label>
                   <div className="relative">
@@ -306,7 +233,6 @@ export const LoginPage: React.FC = () => {
                     </Button>
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <Label htmlFor="confirm-password">Confirm Password</Label>
                   <div className="relative">
@@ -322,7 +248,6 @@ export const LoginPage: React.FC = () => {
                     />
                   </div>
                 </div>
-
                 <Button 
                   type="submit" 
                   disabled={isLoading}
