@@ -35,8 +35,13 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-all duration-200">
-                <div className="text-xl font-bold">T</div>
+              <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-all duration-200 overflow-hidden">
+                <img
+                  src="/product-images/logo.jpeg"
+                  alt="Town-Nomic Logo"
+                  className="object-cover w-full h-full"
+                  style={{ filter: 'brightness(0.95) contrast(1.1)' }}
+                />
               </div>
               <div>
                 <h1 className="text-xl font-bold">Town-Nomic</h1>

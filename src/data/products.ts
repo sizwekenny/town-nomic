@@ -29,7 +29,7 @@ export const mockProducts: Product[] = [
     id: '1',
     name: 'Traditional Zulu Basket - Green Pattern',
     price: 250,
-  image: '/product-images/zulu-basket-green.jpg',
+  image: '/product-images/busket.jpeg',
     description: 'Handwoven traditional Zulu basket with intricate green and black patterns. Made from sustainable materials by skilled artisans.',
     category: 'Baskets',
     vendor: {
@@ -62,7 +62,7 @@ export const mockProducts: Product[] = [
     id: '2',
     name: 'Beaded Ndebele Jewelry Set',
     price: 150,
-  image: '/product-images/ndebele-jewelry-set.jpg',
+  image: '/product-images/bit.jpeg',
     description: 'Colorful traditional Ndebele beaded jewelry featuring geometric patterns in bright colors.',
     category: 'Jewelry',
     vendor: {
@@ -87,7 +87,7 @@ export const mockProducts: Product[] = [
     id: '3',
     name: 'Carved Wooden Bowl - Geometric Design',
     price: 350,
-  image: '/product-images/wooden-bowl-geometric.jpg',
+  image: '/product-images/bowl.jpeg',
     description: 'Hand-carved wooden bowl with traditional geometric patterns. Perfect for serving or display.',
     category: 'Woodwork',
     vendor: {
@@ -135,7 +135,7 @@ export const mockProducts: Product[] = [
     id: '6',
     name: 'Copper Wire Art Sculpture',
     price: 280,
-  image: '/product-images/copper-wire-art.jpg',
+  image: '/product-images/wire.jpeg',
     description: 'Contemporary copper wire sculpture inspired by traditional African art forms.',
     category: 'Art',
     vendor: {

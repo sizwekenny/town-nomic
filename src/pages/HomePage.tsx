@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, TrendingUp, Shield, Users, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/ProductCard';
@@ -8,11 +8,41 @@ import { Link } from 'react-router-dom';
 export const HomePage: React.FC = () => {
   const featuredProducts = mockProducts.filter(p => p.status === 'approved').slice(0, 6);
 
+  // Slideshow images from product-images folder
+  const heroImages = [
+    '/product-images/ff.jpeg',
+    '/product-images/hh.jpeg',
+    '/product-images/hy.jpeg',
+    '/product-images/rr.jpeg',
+    // '/product-images/woven-grass-mat.jpg',
+    // '/product-images/copper-wire-art.jpg',
+  ];
+  const [currentHero, setCurrentHero] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHero((prev) => (prev + 1) % heroImages.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Hero Background Slideshow */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          {heroImages.map((img, idx) => (
+            <img
+              key={img}
+              src={img}
+              alt="hero background"
+              className={`object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 ${currentHero === idx ? 'opacity-100' : 'opacity-0'}`}
+              style={{ zIndex: 0, filter: 'brightness(0.45) blur(2px)' }}
+            />
+          ))}
+        </div>
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
               Welcome to{' '}
@@ -41,8 +71,8 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-16 h-16 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float z-20"></div>
+        <div className="absolute bottom-20 right-10 w-16 h-16 bg-accent/20 rounded-full animate-float z-20" style={{ animationDelay: '1s' }}></div>
       </section>
 
       {/* Features Section */}
@@ -111,29 +141,6 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Section
-      <section className="py-16 px-4 sm:px-6 lg:px-8 gradient-hero text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div className="animate-scale-in">
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-white/80">Artisans</div>
-            </div>
-            <div className="animate-scale-in" style={{ animationDelay: '0.1s' }}>
-              <div className="text-4xl font-bold mb-2">2,000+</div>
-              <div className="text-white/80">Products</div>
-            </div>
-            <div className="animate-scale-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-4xl font-bold mb-2">10,000+</div>
-              <div className="text-white/80">Happy Customers</div>
-            </div>
-            <div className="animate-scale-in" style={{ animationDelay: '0.3s' }}>
-              <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-white/80">Communities</div>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 };
