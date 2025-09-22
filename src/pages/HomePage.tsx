@@ -51,8 +51,8 @@ export const HomePage: React.FC = () => {
               <span className="text-white font-extrabold drop-shadow-lg">Town-Nomic</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Where we secure the unseen economy by connecting authentic African artisans 
-              with customers worldwide. Discover unique handcrafted treasures that tell a story.
+              Where we secure the unseen economy by connecting and empowering Thswame township communities.
+              Discover local businesses, services, and opportunities that help our neighborhoods thrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/products">
