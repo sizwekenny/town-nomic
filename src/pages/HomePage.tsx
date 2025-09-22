@@ -29,7 +29,7 @@ export const HomePage: React.FC = () => {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <section className="relative px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ minHeight: '520px', paddingTop: '6rem', paddingBottom: '6rem' }}>
         {/* Hero Background Slideshow */}
         <div className="absolute inset-0 w-full h-full z-0">
           {heroImages.map((img, idx) => (
@@ -38,17 +38,17 @@ export const HomePage: React.FC = () => {
               src={img}
               alt="hero background"
               className={`object-cover w-full h-full absolute top-0 left-0 transition-opacity duration-1000 ${currentHero === idx ? 'opacity-100' : 'opacity-0'}`}
-              style={{ zIndex: 0, filter: 'brightness(0.45) blur(2px)' }}
+              style={{ zIndex: 0, filter: 'brightness(0.28) blur(2px)' }}
             />
           ))}
+          {/* Overlay for extra dimming */}
+          <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }}></div>
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
               Welcome to{' '}
-              <span className="gradient-hero bg-clip-text text-transparent">
-                Town-Nomic
-              </span>
+              <span className="text-white font-extrabold drop-shadow-lg">Town-Nomic</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Where we secure the unseen economy by connecting authentic African artisans 

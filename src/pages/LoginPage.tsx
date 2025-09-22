@@ -21,11 +21,11 @@ export const LoginPage: React.FC = () => {
   });
 
   const [signupData, setSignupData] = useState({
-    name: 'kenny',
-    email: 'sizwekenny36@gmail.com',
-    password: '1234',
-    confirmPassword: '1234',
-    phone: '0211456636',
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phone: '',
     role: 'Poduct owner/Vendor'
   });
 
@@ -204,7 +204,7 @@ export const LoginPage: React.FC = () => {
                       <SelectValue placeholder="Select your role" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="customer">Customer</SelectItem>
+                      <SelectItem value="customer">Admin</SelectItem>
                       <SelectItem value="vendor">Product Owner/Vendor</SelectItem>
                     </SelectContent>
                   </Select>
