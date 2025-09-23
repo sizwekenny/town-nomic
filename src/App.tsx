@@ -7,6 +7,9 @@ import { Layout } from "@/components/Layout";
 import { HomePage } from "@/pages/HomePage";
 import { LoginPage } from "@/pages/LoginPage";
 import { ProductsPage } from "@/pages/ProductsPage";
+import { VendorDashboard } from "@/pages/VendorDashboard";
+import { AdminDashboard } from "@/pages/AdminDashboard";
+import { ProductDetail } from "@/pages/ProductDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +27,9 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/products" element={<ProductsPage />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/vendor" element={<VendorDashboard />} />
+                <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Layout>

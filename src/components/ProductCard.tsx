@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Star, Heart, ShoppingCart, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -49,14 +50,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <Button size="icon" variant="secondary" className="bg-white/90 hover:bg-white">
             <Heart className="w-4 h-4" />
           </Button>
-          <Button 
-            size="icon" 
-            variant="secondary" 
-            className="bg-white/90 hover:bg-white"
-            onClick={() => onViewDetails?.(product)}
-          >
-            <Eye className="w-4 h-4" />
-          </Button>
+          <Link to={`/product/${product.id}`}>
+            <Button 
+              size="icon" 
+              variant="secondary" 
+              className="bg-white/90 hover:bg-white"
+            >
+              <Eye className="w-4 h-4" />
+            </Button>
+          </Link>
           <Button size="icon" variant="secondary" className="bg-white/90 hover:bg-white">
             <ShoppingCart className="w-4 h-4" />
           </Button>

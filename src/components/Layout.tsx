@@ -63,12 +63,24 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 Products
               </Link>
+              <Link 
+                to="/vendor" 
+                className={`nav-link text-white hover:text-white/80 ${isActive('/vendor') ? 'text-white font-semibold' : ''}`}
+              >
+                Vendor
+              </Link>
+              <Link 
+                to="/admin" 
+                className={`nav-link text-white hover:text-white/80 ${isActive('/admin') ? 'text-white font-semibold' : ''}`}
+              >
+                Admin
+              </Link>
               {user?.role === 'admin' && (
                 <Link 
                   to="/admin" 
                   className={`nav-link text-white hover:text-white/80 ${isActive('/admin') ? 'text-white font-semibold' : ''}`}
                 >
-                  Admin
+                  Admin Panel
                 </Link>
               )}
               {user?.role === 'vendor' && (
@@ -119,7 +131,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
+              {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-white/20">
               <nav className="flex flex-col space-y-2">
@@ -137,13 +149,27 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                 >
                   Products
                 </Link>
+                <Link 
+                  to="/vendor" 
+                  className="text-white hover:text-white/80 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Vendor
+                </Link>
+                <Link 
+                  to="/admin" 
+                  className="text-white hover:text-white/80 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Admin
+                </Link>
                 {user?.role === 'admin' && (
                   <Link 
                     to="/admin" 
                     className="text-white hover:text-white/80 py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Admin
+                    Admin Panel
                   </Link>
                 )}
                 {user?.role === 'vendor' && (

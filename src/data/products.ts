@@ -9,6 +9,9 @@ export interface Product {
     id: string;
     name: string;
     rating: number;
+    email: string;
+    phone: string;
+    location: string;
   };
   status: 'approved' | 'pending' | 'rejected';
   reviews: Review[];
@@ -35,7 +38,10 @@ export const mockProducts: Product[] = [
     vendor: {
       id: 'v1',
       name: 'Nomsa Craft Collective',
-      rating: 4.8
+      rating: 4.8,
+      email: 'nomsa@crafts.co.za',
+      phone: '+27 82 123 4567',
+      location: 'Tshwane, Gauteng'
     },
     status: 'approved',
     reviews: [
@@ -68,7 +74,10 @@ export const mockProducts: Product[] = [
     vendor: {
       id: 'v2',
       name: 'Heritage Beadwork',
-      rating: 4.9
+      rating: 4.9,
+      email: 'info@heritage.co.za',
+      phone: '+27 83 456 7890',
+      location: 'Mamelodi, Tshwane'
     },
     status: 'approved',
     reviews: [
@@ -93,7 +102,10 @@ export const mockProducts: Product[] = [
     vendor: {
       id: 'v3',
       name: 'Ubuntu Woodworks',
-      rating: 4.7
+      rating: 4.7,
+      email: 'ubuntu@wood.co.za',
+      phone: '+27 84 789 0123',
+      location: 'Soshanguve, Tshwane'
     },
     status: 'approved',
     reviews: [],
@@ -109,7 +121,10 @@ export const mockProducts: Product[] = [
     vendor: {
       id: 'v4',
       name: 'Clay & Fire Studio',
-      rating: 4.6
+      rating: 4.6,
+      email: 'clay@fire.co.za',
+      phone: '+27 85 890 1234',
+      location: 'Ga-Rankuwa, Tshwane'
     },
     status: 'pending',
     reviews: [],
@@ -125,7 +140,10 @@ export const mockProducts: Product[] = [
     vendor: {
       id: 'v5',
       name: 'Earth Weavers',
-      rating: 4.5
+      rating: 4.5,
+      email: 'earth@weavers.co.za',
+      phone: '+27 86 901 2345',
+      location: 'Hammanskraal, Tshwane'
     },
     status: 'pending',
     reviews: [],
@@ -141,7 +159,10 @@ export const mockProducts: Product[] = [
     vendor: {
       id: 'v6',
       name: 'Modern Traditions',
-      rating: 4.4
+      rating: 4.4,
+      email: 'modern@traditions.co.za',
+      phone: '+27 87 012 3456',
+      location: 'Atteridgeville, Tshwane'
     },
     status: 'approved',
     reviews: [
