@@ -51,7 +51,7 @@ export const HomePage: React.FC = () => {
               <span className="text-white font-extrabold drop-shadow-lg">Town-Nomic</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Where we secure the unseen economy by connecting and empowering Thswame township communities.
+              Where we secure the unseen economy by connecting and empowering Tshwane township communities.
               Discover local businesses, services, and opportunities that help our neighborhoods thrive.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -105,7 +105,7 @@ export const HomePage: React.FC = () => {
                 <Sparkles className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Authentic Pieces</h3>
-              <p className="text-muted-foreground">Showcasing the talent, innovation, and entrepreneurial spirit of Thswane township.</p>
+              <p className="text-muted-foreground">Showcasing the talent, innovation, and entrepreneurial spirit of Tshwane township.</p>
             </div>
           </div>
         </div>

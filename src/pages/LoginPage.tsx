@@ -143,6 +143,13 @@ export const LoginPage: React.FC = () => {
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
             </TabsList>
             <TabsContent value="login">
+              {/* Dummy login details for demo/testing */}
+              <div className="mb-4 p-4 rounded-lg bg-muted/50 border text-xs text-muted-foreground">
+                <div className="mb-2 font-semibold text-foreground">Demo Login Details:</div>
+                <div><span className="font-semibold">Admin:</span> admin@townnomic.co.za / any password</div>
+                <div><span className="font-semibold">Vendor:</span> vendor@townnomic.co.za / any password</div>
+                <div><span className="font-semibold">Customer:</span> customer@townnomic.co.za / any password</div>
+              </div>
               <form onSubmit={handleLogin} className="space-y-4">
                 <h2 className="text-xl font-semibold text-center mb-4">Welcome Back</h2>
                 <div className="space-y-2">
