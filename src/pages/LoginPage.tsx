@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock, User, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,13 +7,14 @@ import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 
 export const LoginPage: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [otpSent, setOtpSent] = useState(false);
-  // const [otp, setOtp] = useState('');
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const [loginData, setLoginData] = useState({
     email: '',
@@ -26,20 +27,48 @@ export const LoginPage: React.FC = () => {
     password: '',
     confirmPassword: '',
     phone: '',
-    role: 'Poduct owner/Vendor'
+    role: 'vendor'
   });
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Mock login process (no OTP)
+    
+    // Mock login process - simulate checking credentials
     setTimeout(() => {
       setIsLoading(false);
+      
+      // Mock user data - determine role based on email for demo
+      let role: 'admin' | 'vendor' | 'customer' = 'customer';
+      if (loginData.email.includes('admin')) {
+        role = 'admin';
+      } else if (loginData.email.includes('vendor') || loginData.email.includes('owner')) {
+        role = 'vendor';
+      }
+      
+      const mockUser = {
+        id: '1',
+        name: 'John Doe',
+        email: loginData.email,
+        phone: '+27 82 123 4567',
+        role: role
+      };
+      
+      login(mockUser);
+      
       toast({
         title: "Login Successful",
         description: "Welcome back!",
       });
-      // In a real app, redirect to dashboard here
+      
+      // Redirect to appropriate dashboard
+      if (mockUser.role === 'admin') {
+        navigate('/admin');
+      } else if (mockUser.role === 'vendor') {
+        navigate('/vendor');
+      } else {
+        navigate('/products');
+      }
     }, 1000);
   };
 
@@ -57,14 +86,34 @@ export const LoginPage: React.FC = () => {
       return;
     }
 
-    // Mock signup process (no OTP)
+    // Mock signup and automatic login
     setTimeout(() => {
       setIsLoading(false);
+      
+      // Create user object
+      const newUser = {
+        id: Math.random().toString(36).substr(2, 9),
+        name: signupData.name,
+        email: signupData.email,
+        phone: signupData.phone,
+        role: signupData.role as 'admin' | 'vendor' | 'customer'
+      };
+      
+      login(newUser);
+      
       toast({
         title: "Account Created",
-        description: "You can now log in with your credentials.",
+        description: "Welcome to Town-Nomic!",
       });
-      // In a real app, redirect to login or dashboard here
+      
+      // Redirect to appropriate dashboard based on role
+      if (newUser.role === 'admin') {
+        navigate('/admin');
+      } else if (newUser.role === 'vendor') {
+        navigate('/vendor');
+      } else {
+        navigate('/products');
+      }
     }, 1000);
   };
 
@@ -204,8 +253,9 @@ export const LoginPage: React.FC = () => {
                       <SelectValue placeholder="Select your role" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="customer">Admin</SelectItem>
+                      <SelectItem value="admin">Admin</SelectItem>
                       <SelectItem value="vendor">Product Owner/Vendor</SelectItem>
+                      <SelectItem value="customer">Customer</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

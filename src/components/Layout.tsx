@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search, Filter, Menu, X, ShoppingCart, User, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useAuth } from '@/contexts/AuthContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,20 +13,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const { user, logout } = useAuth();
   
   const isActive = (path: string) => location.pathname === path;
-  
-  // Mock user state - in real app would come from auth context
-  const [user, setUser] = useState<any>(null);
-
-  const handleLogin = () => {
-    // Mock login - would integrate with real auth
-    setUser({ name: 'John Doe', role: 'customer' });
-  };
-
-  const handleLogout = () => {
-    setUser(null);
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -107,7 +97,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <User className="w-5 h-5" />
                     <span className="text-sm">{user.name}</span>
                   </div>
-                  <Button onClick={handleLogout} variant="ghost" className="text-white hover:bg-white/10">
+                  <Button onClick={logout} variant="ghost" className="text-white hover:bg-white/10">
                     Logout
                   </Button>
                 </div>
