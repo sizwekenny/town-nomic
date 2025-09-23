@@ -53,18 +53,18 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               >
                 Products
               </Link>
-              <Link 
+              {/* <Link 
                 to="/vendor" 
                 className={`nav-link text-white hover:text-white/80 ${isActive('/vendor') ? 'text-white font-semibold' : ''}`}
               >
                 Vendor
-              </Link>
-              <Link 
+              </Link> */}
+              {/* <Link 
                 to="/admin" 
                 className={`nav-link text-white hover:text-white/80 ${isActive('/admin') ? 'text-white font-semibold' : ''}`}
               >
                 Admin
-              </Link>
+              </Link> */}
               {user?.role === 'admin' && (
                 <Link 
                   to="/admin" 

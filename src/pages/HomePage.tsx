@@ -105,7 +105,7 @@ export const HomePage: React.FC = () => {
                 <Sparkles className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Authentic Pieces</h3>
-              <p className="text-muted-foreground">Each product tells a unique story and represents the movement we are trying to bring.</p>
+              <p className="text-muted-foreground">Showcasing the talent, innovation, and entrepreneurial spirit of Thswane township.</p>
             </div>
           </div>
         </div>
